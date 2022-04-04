@@ -76,7 +76,7 @@ dependencies = [
  "firestorm",
  "http",
  "log 0.4.14",
- "regex 1.5.4",
+ "regex 1.5.5",
  "serde 1.0.136",
 ]
 
@@ -158,7 +158,7 @@ dependencies = [
  "mime",
  "once_cell",
  "pin-project-lite",
- "regex 1.5.4",
+ "regex 1.5.5",
  "serde 1.0.136",
  "serde_json",
  "serde_urlencoded",
@@ -401,7 +401,7 @@ dependencies = [
  "peeking_take_while",
  "proc-macro2",
  "quote",
- "regex 1.5.4",
+ "regex 1.5.5",
  "rustc-hash",
  "shlex",
 ]
@@ -590,6 +590,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "cmake"
+version = "0.1.46"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b7b858541263efe664aead4a5209a4ae5c5d2811167d4ed4ee0944503f8d2089"
+dependencies = [
+ "cc",
+]
+
+[[package]]
 name = "collection"
 version = "0.3.1"
 dependencies = [
@@ -718,7 +727,7 @@ dependencies = [
  "oorandom",
  "plotters",
  "rayon",
- "regex 1.5.4",
+ "regex 1.5.5",
  "serde 1.0.136",
  "serde_cbor",
  "serde_derive",
@@ -922,7 +931,7 @@ dependencies = [
  "atty",
  "humantime",
  "log 0.4.14",
- "regex 1.5.4",
+ "regex 1.5.5",
  "termcolor",
 ]
 
@@ -1267,6 +1276,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "heck"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2540771e65fc8cb83cd6e8a237f70c319bd5c29f78ed1084ba5d50eeac86f7f9"
+
+[[package]]
 name = "hermit-abi"
 version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1381,7 +1396,7 @@ dependencies = [
  "console",
  "lazy_static 1.4.0",
  "number_prefix",
- "regex 1.5.4",
+ "regex 1.5.5",
 ]
 
 [[package]]
@@ -2108,9 +2123,9 @@ dependencies = [
  "log 0.4.14",
  "nix",
  "parking_lot 0.11.2",
- "prost",
- "prost-build",
- "prost-derive",
+ "prost 0.9.0",
+ "prost-build 0.9.0",
+ "prost-derive 0.9.0",
  "smallvec",
  "symbolic-demangle",
  "tempfile",
@@ -2122,6 +2137,16 @@ name = "ppv-lite86"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ac74c624d6b2d21f425f752262f42188365d7b8ff1aff74c82e45136510a4857"
+
+[[package]]
+name = "prettyplease"
+version = "0.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3b83ec2d0af5c5c556257ff52c9f98934e243b9fd39604bfb2a9b75ec2e97f18"
+dependencies = [
+ "proc-macro2",
+ "syn",
+]
 
 [[package]]
 name = "proc-macro-error"
@@ -2149,9 +2174,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.27"
+version = "1.0.36"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f0d8caf72986c1a598726adc988bb5984792ef84f5ee5aa50209145ee8077038"
+checksum = "c7342d5883fbccae1cc37a2353b09c87c9b0f3afd73f5fb9bba687a1f733b029"
 dependencies = [
  "unicode-xid",
 ]
@@ -2163,7 +2188,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "444879275cb4fd84958b1a1d5420d15e6fcf7c235fe47f053c9c2a80aceb6001"
 dependencies = [
  "bytes",
- "prost-derive",
+ "prost-derive 0.9.0",
+]
+
+[[package]]
+name = "prost"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1bd5316aa8f5c82add416dfbc25116b84b748a21153f512917e8143640a71bbd"
+dependencies = [
+ "bytes",
+ "prost-derive 0.10.0",
 ]
 
 [[package]]
@@ -2173,15 +2208,37 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "62941722fb675d463659e49c4f3fe1fe792ff24fe5bbaa9c08cd3b98a1c354f5"
 dependencies = [
  "bytes",
- "heck",
+ "heck 0.3.3",
  "itertools",
  "lazy_static 1.4.0",
  "log 0.4.14",
  "multimap",
  "petgraph 0.6.0",
- "prost",
- "prost-types",
- "regex 1.5.4",
+ "prost 0.9.0",
+ "prost-types 0.9.0",
+ "regex 1.5.5",
+ "tempfile",
+ "which",
+]
+
+[[package]]
+name = "prost-build"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "328f9f29b82409216decb172d81e936415d21245befa79cd34c3f29d87d1c50b"
+dependencies = [
+ "bytes",
+ "cfg-if",
+ "cmake",
+ "heck 0.4.0",
+ "itertools",
+ "lazy_static 1.4.0",
+ "log 0.4.14",
+ "multimap",
+ "petgraph 0.6.0",
+ "prost 0.10.0",
+ "prost-types 0.10.0",
+ "regex 1.5.5",
  "tempfile",
  "which",
 ]
@@ -2200,13 +2257,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "prost-derive"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df35198f0777b75e9ff669737c6da5136b59dba33cf5a010a6d1cc4d56defc6f"
+dependencies = [
+ "anyhow",
+ "itertools",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "prost-types"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "534b7a0e836e3c482d2693070f982e39e7611da9695d4d1f5a4b186b51faef0a"
 dependencies = [
  "bytes",
- "prost",
+ "prost 0.9.0",
+]
+
+[[package]]
+name = "prost-types"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "926681c118ae6e512a3ccefd4abbe5521a14f4cc1e207356d4d00c0b7f2006fd"
+dependencies = [
+ "bytes",
+ "prost 0.10.0",
 ]
 
 [[package]]
@@ -2222,7 +2302,7 @@ dependencies = [
  "num-traits 0.2.14",
  "num_cpus",
  "parking_lot 0.12.0",
- "prost",
+ "prost 0.9.0",
  "rand 0.8.4",
  "schemars",
  "segment",
@@ -2406,9 +2486,9 @@ dependencies = [
 
 [[package]]
 name = "regex"
-version = "1.5.4"
+version = "1.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d07a8629359eb56f1e2fb1652bb04212c072a87ba68546a04065d525673ac461"
+checksum = "1a11647b6b25ff05a515cb92c365cec08801e83423a235b51e231e1808747286"
 dependencies = [
  "aho-corasick 0.7.18",
  "memchr 2.4.0",
@@ -2660,7 +2740,7 @@ checksum = "6a3a4e0ea8a88553209f6cc6cfe8724ecad22e1acf372793c27d995290fe74f8"
 dependencies = [
  "lazy_static 1.4.0",
  "num-traits 0.1.43",
- "regex 1.5.4",
+ "regex 1.5.5",
  "serde 0.8.23",
 ]
 
@@ -2851,9 +2931,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.72"
+version = "1.0.90"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a1e8cdbefb79a9a5a65e0db8b47b723ee907b7c7f8496c76a1770b5c310bab82"
+checksum = "704df27628939572cd88d33f171cd6f896f4eaca85252c6e0a72d8d8287ee86f"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3117,8 +3197,8 @@ dependencies = [
  "hyper-timeout",
  "percent-encoding",
  "pin-project",
- "prost",
- "prost-derive",
+ "prost 0.9.0",
+ "prost-derive 0.9.0",
  "tokio",
  "tokio-stream",
  "tokio-util",
@@ -3131,12 +3211,13 @@ dependencies = [
 
 [[package]]
 name = "tonic-build"
-version = "0.6.2"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9403f1bafde247186684b230dc6f38b5cd514584e8bec1dd32514be4745fa757"
+checksum = "4d17087af5c80e5d5fc8ba9878e60258065a0a757e35efe7a05b7904bece1943"
 dependencies = [
+ "prettyplease",
  "proc-macro2",
- "prost-build",
+ "prost-build 0.10.0",
  "quote",
  "syn",
 ]
